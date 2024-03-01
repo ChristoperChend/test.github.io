@@ -1,0 +1,391 @@
+@font-face {
+    font-family: 'JetBrains';
+    src: url(font/JetBrainsMono-Regular.woff2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'JetBrains', Courier, monospace;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background: rgb(25, 25, 25);
+    padding: 10px;
+}
+
+.todo-app {
+    width: 100%;
+    max-width: 1000px;
+    margin: 100px auto 20px;
+    padding: 40px 30px 70px;
+}
+
+.todo-app h2 {
+    color: white;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 50px;
+}
+
+.todo-app h2 img {
+    width: 70px;
+    margin-left: 10px;
+}
+
+#input-box {
+    outline: none;
+    border: none;
+    width: 100%;
+    height: auto;
+    resize: none;
+    overflow: hidden;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: rgb(25, 25, 25);
+    color: rgb(200, 200, 200);
+}
+
+.category {
+    width: 107%;
+}
+
+.select-btn {
+    display: flex;
+    height: 50px;
+    align-items: center;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    justify-content: space-between;
+    color: rgb(200, 200, 200);
+}
+
+.select-btn.open~.list-category {
+    display: block;
+}
+
+.select-btn:hover {
+    background-color: rgb(38, 38, 38);
+}
+
+.select-btn .arrow-down {
+    transition: 0.3s;
+}
+
+.select-btn.open .arrow-down {
+    transform: rotate(-180deg);
+}
+
+
+.list-category {
+    position: absolute;
+    border-radius: 5px;
+    display: none;
+    background-color: rgb(38, 38, 38);
+}
+
+
+.list-category .items {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    height: 40px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.list-category .items:hover {
+    background-color: rgb(38, 38, 38);
+}
+
+.items .category-text {
+    font-size: 15px;
+    color: rgb(200, 200, 200);
+    padding: 10px 30px 10px 10px;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    background: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: 1.8px solid rgb(200, 200, 200);
+    align-items: center;
+    justify-content: center;
+}
+
+label {
+    font-size: 15px;
+    cursor: pointer;
+}
+
+input[type="checkbox"]::after {
+    font-family: "Font Awesome 6 Free";
+    content: "\f00c";
+    font-weight: 900;
+    font-size: 15px;
+    display: none;
+}
+
+input[type="checkbox"]:checked {
+    background-color: rgb(200, 200, 200);
+}
+
+input[type="checkbox"]:checked::after {
+    display: block;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+}
+
+.row p {
+    color: white;
+    font-size: 15px;
+    padding-right: 10%;
+    font-weight: 100;
+    margin-right: 10px;
+}
+
+select {
+    appearance: none;
+    overflow: auto;
+}
+
+#category-dropdown {
+    border: none;
+    outline: none;
+    width: 100%;
+    color: rgb(200, 200, 200);
+    background-color: rgb(25, 25, 25);
+    padding: 15px;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#newcategory-dropdown:hover {
+    background-color: rgb(38, 38, 38);
+}
+
+#newcategory-dropdown {
+    border: none;
+    outline: none;
+    width: 100%;
+    color: rgb(200, 200, 200);
+    background-color: rgb(25, 25, 25);
+    padding: 15px;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#category-dropdown:hover {
+    background-color: rgb(38, 38, 38);
+}
+
+#new-category {
+    border: none;
+    outline: none;
+    color: rgb(200, 200, 200);
+    background-color: rgb(25, 25, 25);
+}
+
+#newCategoryBtn {
+    border: none;
+    outline: none;
+    padding: 15px;
+    background-color: rgb(200, 200, 200);
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#row-date p {
+    color: white;
+    font-size: 15px;
+    padding-right: 14%;
+    font-weight: 100;
+    margin-right: 10px;
+}
+
+#due-date {
+    border: none;
+    outline: none;
+    font-size: 15px;
+    padding-left: 3px;
+    color: rgb(200, 200, 200);
+}
+
+#calendar-popup {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 15px;
+    color: rgb(200, 200, 200);
+    background-color: rgb(25, 25, 25);
+}
+
+#calendar-popup:hover {
+    background-color: rgb(38, 38, 38);
+    cursor: pointer;
+}
+
+#clock-popup {
+    border: none;
+    outline: none;
+    width: 116%;
+    padding: 15px;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: rgb(200, 200, 200);
+    background-color: rgb(25, 25, 25);
+}
+
+#clock-popup:hover {
+    background-color: rgb(38, 38, 38);
+}
+
+.taskList li {
+    list-style: none;
+    font-size: 15px;
+    padding: 10px 8px 12px 50px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    color: rgb(200, 200, 200);
+}
+
+.taskList li::before {
+    font-family: "Font Awesome 6 Free";
+    top: 12px;
+    left: 20px;
+    content: "\f0c8";
+    position: absolute;
+}
+
+.taskList li.checked {
+    text-decoration: line-through;
+}
+
+.taskList li.checked::before {
+    font-family: "Font Awesome 6 Free";
+    content: "\f14a";
+}
+
+.taskList li span {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.taskList li span:hover {
+    background: rgb(38, 38, 38);
+}
+
+#add-button {
+    border: none;
+    outline: none;
+    background-color: rgb(25, 25, 25);
+    width: 100%;
+    color: rgb(200, 200, 200);
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#add-button:hover {
+    background-color: rgb(200, 200, 200);
+    color: rgb(25, 25, 25);
+    cursor: pointer;
+}
+
+.taskList {
+    outline: auto;
+    width: 100%;
+    max-width: 1000px;
+    margin: 10px auto 20px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.taskList p {
+    font-size: 50px;
+    color: white;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.label {
+    font-size: 15px;
+    display: inline-block;
+    width: 10px;
+    vertical-align: top;
+    margin-right: 100px;
+    color: rgb(200, 200, 200);
+}
+
+.delete-category {
+    border: none;
+    outline: none;
+    position: absolute;
+    padding: 2px 6px;
+    right: 5px;
+    border-radius: 50%;
+    background: transparent;
+}
+
+.delete-category:hover {
+    background-color: rgb(125, 125, 125);
+}
+
+.filter-button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 15px;
+    border-radius: 5px;
+    color: rgb(200, 200, 200);
+}
+
+.filter-button i {
+    margin-left: 5px;
+}
+
+.filter-button:hover {
+    background-color: rgb(38, 38, 38);
+}
+
+.filter-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.filter-checkboxes {
+    color: rgb(200, 200, 200);
+    display: flex;
+    margin-left: 10px;
+}
+
+.filter-checkboxes label {
+    margin-right: 10px;
+}

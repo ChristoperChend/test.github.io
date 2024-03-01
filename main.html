@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="todo-app">
+            <h2>To-Do List<img src="image/todo-list.png"></h2>
+            <textarea id="input-box" placeholder="Untitled"></textarea><br>
+
+            <div class="row">
+                <p>Category</p>
+                <div class="category">
+                    <div class="select-btn">
+                        <span class="btn-text">Select Category</span>
+                        <span class="arrow-down">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+                    </div>
+                    <ul class="list-category">
+                        <li class="items">
+                            <input type="checkbox" class="check-input">
+                            <label class="category-text">Personal</label>
+                        </li>
+                        <li class="items">
+                            <input type="checkbox" class="check-input">
+                            <label class="category-text">Work</label>
+                        </li>
+                        <li class="items">
+                            <input type="checkbox" class="check-input">
+                            <label class="category-text">School</label>
+                        </li>
+                    </ul>
+                </div>
+                <input type="text" id="newcategory-dropdown" placeholder="Add New Category">
+                <button id="newCategoryBtn" onclick="addNewCategory()">Add</button>
+            </div>
+            <br>
+            <div class="row" id="row-date">
+                <p>Date</p>
+                <input type="date" id="calendar-popup"><input type="time" id="clock-popup">
+            </div>
+            <br><br>
+            <button onclick="addTask()" id="add-button">Add Task</button>
+        </div>
+        <div class="taskList">
+            <p>Task List</p>
+            <br>
+            <hr><br>
+            <div class="row">
+                <div class="filter-container">
+                    <button class="filter-button" onclick="filterTasks()">
+                        Apply Filter
+                        <i class="fa-solid fa-sort"></i>
+                    </button>
+                    <div class="filter-checkboxes">
+                        <label>
+                            <input type="checkbox" class="filter-checkbox" value="Personal"> Personal
+                        </label>
+                        <label>
+                            <input type="checkbox" class="filter-checkbox" value="Work"> Work
+                        </label>
+                        <label>
+                            <input type="checkbox" class="filter-checkbox" value="School"> School
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <hr><br>
+            <ul id="list-container" class="task-info"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
